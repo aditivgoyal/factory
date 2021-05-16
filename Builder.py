@@ -27,7 +27,7 @@ class Builder(Inventory, Recipes):
         if (produce_itm in self.inventory_list.keys() and desired_consumer[produce_itm] > self.inventory_list[produce_itm]):
             desired_qty = desired_consumer[produce_itm] - self.inventory_list[produce_itm]
 
-        desired_qty = math.ceil(desired_qty / self.get_product_qty(recipe_name))
+        desired_qty = int(math.ceil(desired_qty / self.get_product_qty(recipe_name)))
 
         for i in range(desired_qty):
             recipe_time = 0.0
