@@ -3,6 +3,7 @@ import json
 from Inventory import Inventory
 
 base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+#test_dir = os.path.join(base_dir, 'alembic', 'versions', 'seed', 'unit_test')
 
 class TestInventory(unittest.TestCase, Inventory):
 
@@ -11,13 +12,12 @@ class TestInventory(unittest.TestCase, Inventory):
 
     @patch("builtins.open", new_callback=mock_open,
         read_data=json.dumps(
-                {
-                    "iron_plate": 40,
-                    "iron_gear": 5,
-                    "copper_plate": 20,
-                    "copper_cable": 10,
-                    "lubricant": 100
-                }))
+                "iron_plate": 40,
+                "iron_gear": 5,
+                "copper_plate": 20,
+                "copper_cable": 10,
+                "lubricant": 100
+            }))
     def test_load_inventory(self):
         expected_output = {
                 "iron_plate": 40,
@@ -26,6 +26,7 @@ class TestInventory(unittest.TestCase, Inventory):
                 "copper_cable": 10,
                 "lubricant": 100
             }
+        #filename = 'test_inventory.json'
         actual_output = load_inventory()
 
         # Assert
