@@ -4,6 +4,10 @@ from lib.Recipes import Recipes
 from lib.Builder import Builder
 
 
+if __name__ == "__main__":
+
+    b = Builder('json/recipes.json','json/inventory.json','json/output.json')
+    b.manufacture([{"electric_engine": 5},{"electric_circuit": 5},{"electric_engine": 3}])
 
 '''
 2 * circuit -> 1.5
@@ -18,22 +22,4 @@ from lib.Builder import Builder
     2 pipe -> 0.5
         1 iron plate
 15 * lubricant
-
 '''
-
-
-if __name__ == "__main__":
-
-    inventory = Inventory()
-    inventory.print_inventory()
-
-    recipes = Recipes()
-
-
-    total_time = 0
-
-    b = Builder()
-    b.manufacture("electric_engine", 3)
-    b.manufacture("electric_circuit", 5)
-    b.manufacture("electric_engine", 3)
-    b.dump_inventory()
