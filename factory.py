@@ -1,7 +1,7 @@
 
-from Inventory import Inventory
-from Recipes import Recipes
-from Builder import Builder
+from lib.Inventory import Inventory
+from lib.Recipes import Recipes
+from lib.Builder import Builder
 
 
 
@@ -34,5 +34,6 @@ if __name__ == "__main__":
 
     b = Builder()
     b.manufacture("electric_engine", 3)
-    
+    b.manufacture("electric_circuit", 5)
+    b.manufacture("electric_engine", 3)
     b.dump_inventory()
