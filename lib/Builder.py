@@ -7,19 +7,22 @@ class Builder(Inventory, Recipes):
     This checks all the sub-components required for the product to be built
     and try to build it
     """
-    def __init__(self, recipe_file, inventory_file, out_inventory_file, enable_display = True):
+    def __init__(self, recipe_file, inventory_file, out_inventory_file,
+                enable_display = True):
         Recipes.__init__(self, recipe_file)
-        Inventory.__init__(self, inventory_file, out_inventory_file, enable_display)
+        Inventory.__init__(self, inventory_file, out_inventory_file,
+                            enable_display)
         self.manufacture_time = 0
 
     def __add_item_to_dict(self,dictionary,itm,qty):
-        if (isinstance(dictionary,dict) and isinstance(itm,str)):
+        if (isinstance(dictionary, dict) and isinstance(itm, str)):
             if(itm in dictionary.keys()):
                 dictionary[itm] += qty
             else:
                 dictionary[itm] = qty
 
-    def __get_sub_component(self, desired_produce, produce_itm, produce_qty, spaces):
+    def __get_sub_component(self, desired_produce, produce_itm,
+                            produce_qty, spaces):
         # Check if item is available in the inventory
         if(self.check_item(produce_itm,produce_qty)):
             return 0
@@ -37,7 +40,8 @@ class Builder(Inventory, Recipes):
 
         # Desired quantity of the product
         desired_qty = produce_qty
-        if (produce_itm in self.get_items_list() and desired_produce[produce_itm] > self.get_item_quantity(produce_itm)):
+        if (produce_itm in self.get_items_list()
+            and desired_produce[produce_itm] > self.get_item_quantity(produce_itm)):
             desired_qty = desired_produce[produce_itm] - self.get_item_quantity(produce_itm)
         desired_qty = int(math.ceil(desired_qty / self.get_produce_qty(recipe_name)))
 
@@ -47,7 +51,9 @@ class Builder(Inventory, Recipes):
             # Recursively calculate sub-sub component recipe
             for consume_itm,consume_qty in self.get_consumes(recipe_name):
                 self.__add_item_to_dict(desired_produce,consume_itm,consume_qty)
-                consumes_recipe_time = self.__get_sub_component(desired_produce,consume_itm,desired_produce[consume_itm],new_space)
+                consumes_recipe_time = self.__get_sub_component(desired_produce,consume_itm,
+                                                                desired_produce[consume_itm],
+                                                                new_space)
 
                 # Recipe doesnt exists. Ignore for raw material
                 if (consumes_recipe_time < 0.0):
@@ -70,7 +76,8 @@ class Builder(Inventory, Recipes):
             if (produce_itm not in self.get_items_list()):
                 self.add_item(produce_itm, 0)
 
-            print(spaces + "> building recipe '"+recipe_name+"' in "+str(consumes_time)+" s ("+str(recipe_time)+"s total)")
+            print(spaces + "> building recipe '"+recipe_name+"' in "+
+                str(consumes_time)+" s ("+str(recipe_time)+"s total)")
 
         return component_time
 
@@ -90,7 +97,7 @@ class Builder(Inventory, Recipes):
             self.manufacture_time = 0
 
             # Desired list of produce
-            desired_produce = {order_itm:1}
+            desired_produce = {order_itm: 1}
 
             # If sufficient resources not found, then print inventory and return
             if (self.__get_sub_component(desired_produce,order_itm,1,"  ") < 0.0):
@@ -104,7 +111,8 @@ class Builder(Inventory, Recipes):
 
             # Update inventory list by removing the items needed for the manufacturing
             for inventory_itm in self.get_items_list():
-                if (inventory_itm in desired_produce.keys() and self.get_item_quantity(inventory_itm) >= desired_produce[inventory_itm]):
+                if (inventory_itm in desired_produce.keys() and
+                    self.get_item_quantity(inventory_itm) >= desired_produce[inventory_itm]):
                     self.remove_item(inventory_itm,desired_produce[inventory_itm])
                     desired_produce[inventory_itm] = 0
 

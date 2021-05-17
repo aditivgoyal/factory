@@ -12,13 +12,17 @@ class Inventory:
         self.__inventory_list = {}
         self.__inventory_list = self.load_inventory(inventory_file)
         self.__out_inventory_file = ""
-        if (isinstance(out_inventory_file, str) and (out_inventory_file.endswith(".json") or out_inventory_file.endswith(".JSON"))):
+        if (isinstance(out_inventory_file, str) and
+            (out_inventory_file.endswith(".json") or
+            out_inventory_file.endswith(".JSON"))):
             self.__out_inventory_file = out_inventory_file
 
     # Deleting (Calling destructor)
     def __del__(self):
         self.__print_inventory()
-        if (isinstance(self.__out_inventory_file, str) and (self.__out_inventory_file.endswith(".json") or self.__out_inventory_file.endswith(".JSON"))):
+        if (isinstance(self.__out_inventory_file, str)
+            and (self.__out_inventory_file.endswith(".json") or
+            self.__out_inventory_file.endswith(".JSON"))):
             with open(self.__out_inventory_file,'w') as outfile:
                 json.dump(self.__inventory_list, outfile, indent=4)
 
@@ -35,7 +39,10 @@ class Inventory:
 
     def load_inventory(self, inventory_file):
         self.__inventory_list = {}
-        if (isinstance(inventory_file, str) and (inventory_file.endswith(".json") or inventory_file.endswith(".JSON")) and os.path.isfile(inventory_file)):
+        if (isinstance(inventory_file, str) and
+            (inventory_file.endswith(".json")
+            or inventory_file.endswith(".JSON")) and
+            os.path.isfile(inventory_file)):
             with open(inventory_file) as f:
                 self.__inventory_list = json.load(f)
         self.__print_inventory()
@@ -71,4 +78,5 @@ class Inventory:
         return self.__inventory_list.keys()
 
     def check_item(self, item, qty):
-        return (isinstance(item, str) and isinstance(qty, int) and item in self.get_items_list() and self.get_item_quantity(item) >= qty)
+        return (isinstance(item, str) and isinstance(qty, int) and
+                item in self.get_items_list() and self.get_item_quantity(item) >= qty)
