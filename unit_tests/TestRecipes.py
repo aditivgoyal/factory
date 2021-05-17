@@ -2,9 +2,6 @@ import unittest
 import json
 import sys
 import os
-from unittest.mock import patch, mock_open
-
-#base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 from lib.Recipes import Recipes
 
 recipe_file = 'json/recipes.json'
@@ -87,8 +84,6 @@ expected_recipe_list = {
 }
 
 class TestRecipes(unittest.TestCase):
-
-    #@patch("builtins.open", new_callback=mock_open, read_data=json.dumps(expected_inventory_list))
 
     def setUp(self):
         self.recipes = Recipes(recipe_file)
