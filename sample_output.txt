@@ -1,0 +1,72 @@
+
+INVENTORY: 
+
+ * iron_plate: 40
+ * iron_gear: 5
+ * copper_plate: 20
+ * copper_cable: 10
+ * lubricant: 100
+
+    > building recipe 'recipe_circuit' in 1.5 s (1.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (1.5s total)
+      > building recipe 'recipe_steel' in 16.0 s (16.0s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+    > building recipe 'recipe_engine_block' in 10.0 s (27.0s total)
+  > building recipe 'recipe_elec_engine' in 10.0 s (40.0s total)
+Built electric_engine in 40.0 seconds
+
+    > building recipe 'recipe_circuit' in 1.5 s (1.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.0s total)
+      > building recipe 'recipe_steel' in 16.0 s (16.0s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+    > building recipe 'recipe_engine_block' in 10.0 s (27.0s total)
+  > building recipe 'recipe_elec_engine' in 10.0 s (40.5s total)
+Built electric_engine in 40.5 seconds
+
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.0s total)
+      > building recipe 'recipe_steel' in 16.0 s (16.0s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+    > building recipe 'recipe_engine_block' in 10.0 s (27.0s total)
+  > building recipe 'recipe_elec_engine' in 10.0 s (41.5s total)
+Built electric_engine in 41.5 seconds
+
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.0s total)
+      > building recipe 'recipe_steel' in 16.0 s (16.0s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+      > building recipe 'recipe_pipe' in 0.5 s (0.5s total)
+    > building recipe 'recipe_engine_block' in 10.0 s (27.0s total)
+  > building recipe 'recipe_elec_engine' in 10.0 s (41.5s total)
+Built electric_engine in 41.5 seconds
+
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.5s total)
+      > building recipe 'recipe_cables' in 0.5 s (0.5s total)
+    > building recipe 'recipe_circuit' in 1.5 s (2.0s total)
+Insufficient resources to build: electric_engine
+
+INVENTORY: 
+
+ * iron_plate: 4
+ * iron_gear: 1
+ * copper_plate: 13
+ * copper_cable: 0
+ * lubricant: 40
+ * electric_engine: 4
+ * electric_circuit: 0
+ * steel_plate: 0
+ * pipe: 0
+ * engine_block: 0
+
