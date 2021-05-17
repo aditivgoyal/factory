@@ -2,7 +2,6 @@ import unittest
 import json
 import sys
 import os
-from unittest.mock import patch, mock_open
 
 from lib.Builder import Builder
 
@@ -42,5 +41,3 @@ class TestRecipes(unittest.TestCase):
 
     def test_manufacture(self):
         self.assertEqual(self.builder.manufacture([{"electric_engine": 3},{"electric_circuit": 5},{"electric_engine": 3}]), expected_output)
-        #self.builder.load_inventory(inventory_file)
-        #self.assertEqual(self.builder.manufacture([{"electric_engine": 5}]), expected_output2)
