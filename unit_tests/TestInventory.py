@@ -2,9 +2,6 @@ import unittest
 import json
 import sys
 import os
-from unittest.mock import patch, mock_open
-
-#base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 from lib.Inventory import Inventory
 
 inventory_file = 'json/inventory.json'
@@ -19,16 +16,11 @@ expected_inventory_list = {
 
 class TestInventory(unittest.TestCase):
 
-    #@patch("builtins.open", new_callback=mock_open, read_data=json.dumps(expected_inventory_list))
-
     def setUp(self):
         self.inventory = Inventory(inventory_file, out_inventory_file, False)
 
     def test_load_inventory(self):
         self.assertTrue(inventory_file.endswith(".json") or inventory_file.endswith(".JSON"))
-        # check that s.split fails when the separator is not a string
-        #with self.assertRaises(TypeError):
-        #    s.split(2)
         self.assertTrue(os.path.isfile(inventory_file))
         self.assertEqual(self.inventory.load_inventory(inventory_file), expected_inventory_list)
 
